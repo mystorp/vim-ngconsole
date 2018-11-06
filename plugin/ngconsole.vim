@@ -17,3 +17,6 @@ au! BufRead *.html call ngconsole#resources#loadFor(expand("<afile>:p"))
 au! BufEnter *.html call ngconsole#highlight#renderHtml(expand("<afile>:p"))
 " 缓冲区移除时，清理之前缓存的 resources
 au! BufDelete *.html call ngconsole#resources#removeFor(expand("<afile>:p"))
+" 为项目中基础代码的 API 提供 complete 支持，包括 angular 等 typescript
+" 无法提供代码完成的一些 API 
+au! BufRead *.js call ngconsole#complete#autoComplete(expand("<afile>:p"))
